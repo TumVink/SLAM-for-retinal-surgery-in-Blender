@@ -1,0 +1,48 @@
+Hey Good morning! 
+I am Jingsong, study at mechanical engineering institute. And my kick off presentation is about SLAM based on the spotlight for retinal surgery.
+
+
+ At first i am going to introduce why we need robot-aided in retinal surgery.
+
+
+Nowadays there are more than hundred million patients were identified as having retinal diseases. But due to limitations in the human capabilities, retinal microsurgery is one of the most challenging surgical tasks. The challenges include the need for highly precise movements in a very small and fragile environment, which is also difficult to access. It is further hindered by poor visibility, movements of the patient and hand tremor of the surgeon.
+
+
+To overcome the motorical limitations, researchers introduced robots designed to provide highly precise instrument movements, and also filter out hand tremors.  
+Also an important step towards more autonomy is not relying on human vision to localize the instrument within the eye. Structured spotlight can be a good choice to localize the instrument. 
+
+
+So which related work has been done to localize the instrument?
+
+
+Here i am going to introduce a previous work of Dr.Zhou, which can access great localization accuracy. 
+I think some of you may be familiar with this concept. 
+(a)The instrument is inserted into the eye through the sclera, close to the iris. The camera microscope is used to capture the retina. (b)Then The projected light pattern is extracted from the camera image. The contour of the projection is extracted. (c)Then is to reconstruct the three dimensional shape of the contour. An ellipse is fitted into the shape. Based on this fitting and the geometric properties of the light cone, the source position of the light is reconstructed. (d)The reconstructed cone is placed above the projection to obtain the position of the instrument.
+
+
+The localization mothod can access great accuracy. No matter is the trajectory square or helix, the average error is around only 30 mircometers. But a drawback is that as far as application to retinal surgery it lacks mapping function, which can guarantee the safety of the eyeball, like prevent the instrument colliding with retinal. So that is exactly what will be done in the research.
+
+
+Now lets see how our peers do the retinal-mapping job.
+
+
+Yang from CMU propose a method also based on projective geometry analyse to estimate the retinal surface. Here he assumed the retinal surface as a plane in small area which is parallel to the image plane. And what is different from the previous method is that they ultilize a laser probe, which can only project a point in retinal surface. So in order to come into a form of ellipse projection in retinal surface (plane), the laser probe must excute a circular trajectory as the blue beam in figure 1. 
+The following steps are similar, ellipse extraction and fit, then compute the plane with normal vectors and a point. Then the lesions where should be treated with laser will be marked with small circles in the estimated retinal plane.
+
+
+What was great with the research is that lots of experiments were designed to verify the accuracy of the surface estimation method. Here are three diff experiment materials: eye phantom, eye phantom with dissected porcine eye and intact porcine eye. When work with image visual serving, which is another localization method, it can access good accurancy.
+However when only talking about the surface estimation method, the accuracy is very poor, more than 600 um. Besides, the estimated retina is just a plane, far different from realistic. The author Yang also admit that a 3d Mapping has more significance. That also verifies the unique meaning of our research.
+
+
+So what will be done in this research?
+
+The current idea is that the robot platform provides the instruments positions and pose relative to world coordinate. And the position of projected ellipse centers relative to intrument can be computed with Dr.Zhou's method. Then the coordinates of points on surface can be computed and visulized with simulation software. Lots of points can be regarded as points cloud mapping. Then we will see wehther it is nessecary to use Interpolation method to get a surface-form or leave it point cloud.
+
+That is basically the introduction and ideas in the research. 
+Thanks for your attention and feel free to ask questions.
+
+
+
+
+
+
